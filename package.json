@@ -1,13 +1,25 @@
 {
   "name": "hyperx-cloud-flight-wireless",
   "version": "1.0.0",
-  "description": "Module for interfacing with HyperX Cloud Flight Wireless",
+  "description": "Reverse-engineered HID module for interfacing with HyperX Cloud Flight Wireless (supports PIDs 0x16C4/0x1723). Emits power/mute/volume/charging/battery events. Used by the Windows tray app in /tray-hyperx.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "author": "Søren Brokær <mail@srn.io>",
   "license": "ISC",
+  "keywords": [
+    "hyperx",
+    "cloud-flight",
+    "hid",
+    "node-hid",
+    "battery",
+    "headset",
+    "windows"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
   "dependencies": {
     "emittery": "^0.7.2",
     "node-hid": "^2.1.1"
