@@ -40,18 +40,19 @@ Unzip to a permanent folder (e.g., `C:\Apps\HyperXTray\`) and run `HyperXTray.ex
 
 ---
 
-## Screenshots (placeholders)
+## Screenshots
 
-Add your images in `docs/` and replace the paths below.
+- **Tray icon**  
+![Tray icon](tray-hyperx/icon.ico)
 
 - **Left-click popup**  
-  `![Left click popup](docs/screenshot-left.png)`
+![Left click popup](docs/screenshot-left.png)
 
 - **Right-click menu**  
-  `![Right click menu](docs/screenshot-right.png)`
+![Right click menu](docs/screenshot-right.png)
 
 - **Hover tooltip** (mouse over the tray icon)  
-  `![Hover tooltip](docs/screenshot-hover.png)`
+![Hover tooltip](docs/screenshot-hover.png)
 
 ---
 
