@@ -6,7 +6,7 @@
   "license": "ISC",
   "scripts": {
     "start": "electron .",
-    "pack:clean": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$p=Get-Process HyperXTray -ErrorAction SilentlyContinue; if($p){$p|Stop-Process -Force}; $q=Get-CimInstance Win32_Process -Filter \"Name='node.exe'\" | ? { $_.CommandLine -match 'sensor\\.js' }; if($q){$q|%{Stop-Process -Id $_.ProcessId -Force}}; Start-Sleep -s 1; if(Test-Path dist){Remove-Item -Recurse -Force dist}\"",
+    "pack:clean": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$p=Get-Process HyperXTray -ErrorAction SilentlyContinue; if($p){$p|Stop-Process -Force}; $q=Get-CimInstance Win32_Process | ? { $_.Name -eq 'node.exe' -and $_.CommandLine -match 'sensor\\\\.js' }; if($q){$q|%{Stop-Process -Id $_.ProcessId -Force}}; Start-Sleep -s 1; if(Test-Path dist){Remove-Item -Recurse -Force dist}\"",
     "pack": "npm run pack:clean && electron-packager . HyperXTray --overwrite --platform=win32 --arch=x64 --icon=icon.ico --out=dist"
   },
   "dependencies": {
