@@ -1,0 +1,24 @@
+* { box-sizing: border-box; font-family: system-ui, Segoe UI, Arial, sans-serif; }
+html, body { margin: 0; padding: 0; background: transparent; }
+#root {
+  width: 220px;
+  padding: 10px 12px;
+  background: rgba(30, 30, 30, 0.94);
+  color: #eee;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+}
+#status {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+  font-size: 13px;
+}
+.row span { opacity: 0.8; }
+.row strong { font-weight: 700; }
