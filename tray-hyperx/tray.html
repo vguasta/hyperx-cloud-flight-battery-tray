@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HyperX Tray</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./tray.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div id="status">waiting for headphone</div>
+      <div class="row"><span>Battery:</span><strong id="battery">—</strong></div>
+      <div class="row"><span>Muted:</span><strong id="muted">—</strong></div>
+      <div class="row"><span>Charging:</span><strong id="charging">—</strong></div>
+    </div>
+
+    <script>
+      const { ipcRenderer } = require('electron');
+
+      function render(s) {
+        const status = document.getElementById('status');
+        const b = document.getElementById('battery');
+        const m = document.getElementById('muted');
+        const c = document.getElementById('charging');
+
+        if (!s.found) {
+          status.textContent = 'waiting for headphone';
+          b.textContent = '—';
+          m.textContent = '—';
+          c.textContent = '—';
+        } else {
+          status.textContent = 'connected';
+          b.textContent = s.battery != null ? s.battery + '%' : '—';
+          m.textContent = s.muted != null ? (s.muted ? 'on' : 'off') : '—';
+          c.textContent = s.charging != null ? (s.charging ? 'true' : 'false') : '—';
+        }
+      }
+
+      ipcRenderer.on('state:update', (_evt, payload) => render(payload));
+    </script>
+  </body>
+</html>
